@@ -1,94 +1,50 @@
-Dvorak-QWERTY-Ctrl
-==================
+Colemak-QWERTY-Ctrl
+===================
 
-A Windows counterpart to the Mac OS X "Dvorak - QWERTY ⌘" keyboard layout
+A Colemak version of the Mac OS X "Dvorak - QWERTY ⌘" keyboard layout, for Windows.
 
-What?
------
+Includes support for using Caps Lock as Backspace.
 
-A keyboard layout for Windows which behaves the same as the Dvorak
-Simplified Keyboard for normal typing, but when `Ctrl` is held down, it
-behaves like a normal QWERTY layout.
 
-Why?
-----
+Description
+-----------
 
-When I started using the [Dvorak Simplified Keyboard][1] layout, I found
-that the hardest part was adjusting to the different keyboard shortcuts.
-For example, the shortcuts for cut, copy, and paste (`Ctrl` + `X`, `C`,
-and `V`, respectively) are conveniently at the bottom-left of a QWERTY
-keyboard, allowing for the left hand to perform these commands while the
-right hand remains on the mouse. However, using the Dvorak layout, these
-three keys are scattered towards the right-hand side of the keyboard,
-resulting in uncomfortable stretches to perform many common keyboard
-shortcuts (including Close Window, Refresh, New Tab, Save, Find, Undo,
-Cut, Copy, and Paste, to name a few of the more annoying ones).
+A keyboard layout for Windows which behaves the same as the Colemak
+Simplified Keyboard for normal typing, but when `Ctrl` or `Win` is held down, it
+behaves like a normal QWERTY layout. 
 
-Mac OS X provides a keyboard layout called "[Dvorak - QWERTY ⌘][2]",
-which attempts to address this issue. While typing normally, this layout
-is identical to the standard Dvorak Simplified Keyboard. However, when
-pressing a keyboard shortcut which includes the Command key, the layout
-behaves as a QWERTY keyboard would. This means that all shortcuts
-involving the Command key are the same on this layout as on a QWERTY
-layout -- and on Mac OS X, most common keyboard shortcuts involve the
-Command key. However, Windows doesn't have any similar keyboard layout.
+This project is heavily based on [@bradfeehan][1]'s work. View the original project which uses the Dvorak layout [here][2].
 
-Using the [Microsoft Keyboard Layout Creator][3], I created this custom
-keyboard layout to emulate the behaviour of the Dvorak - QWERTY ⌘
-layout. Of course, since there'sno Command key in Windows, this layout
-switches when using the `Ctrl` key instead.
+Using [Microsoft Keyboard Layout Creator (MSKLC)][3], I modified Brad's layout from Dvorak to Colemak, as well as included a separate layout which turns Caps Lock into Backspace without having to dig into the registry. Instead, it is baked into the layout itself meaning if you switch layouts, it will revert to its original behaviour. Read more about how to achieve this functionality with MSKLC [here][4].
 
-How?
-----
 
-The Microsoft Keyboard Layout Creator allows you to use an existing
-keyboard layout as a starting point for your own custom layout. However,
-instead of the obvious choice of starting with a Dvorak layout and
-setting a different value for each key in the `Ctrl` shift state (which
-didn't work), I started with a QWERTY layout and changed all the key
-scan codes, using the following procedure:
+Motivation
+----------
 
-1. Start with any key, e.g. the bottom-left of the keyboard (which is
-   `Z` on QWERTY)
-2. Find what key is in the corresponding physical location on the
-   Dvorak layout (semi-colon, for this key)
-3. Find where *that* key is on a QWERTY keyboard (to the left of the
-   `Enter` key)
-4. Grab the key-code of that key, 28 in this case (having another
-   untouched instance of MKLC open is useful for this)
-5. Change the scan code of the original key (bottom-left key on the
-   keyboard) to this scan code (from `2c` to `28`)
-6. Repeat this process for all keys -- you can skip those that are the
-   same on both layouts (`A`, `M`, the numbers, `\` and <code>`</code>)
-7. Validate the layout, (**Project** > **Validate Layout**) making sure
-   there's no duplicate scan codes or other errors/warnings
-8. Export the DLL and setup package, then install it
+I wanted to start learning the Colemak layout, while retaining the positions of shortcuts that use `Ctrl` or `Win` keys to ease the transition.
 
-I needed to restart after these steps, for it to finally work, but YMMV.
-
-This Git repo contains the final DLLs and installers, as well as the
-.klc file (if you don't want to trust my binaries).
 
 Installation
 ------------
 
-Copy the full repo somewhere and run `usdvqwct/setup.exe`.
+Copy the full repo somewhere and run `Colemak-QWERTY-Ctrl/cvqwct/setup.exe`.
 
-Or, download MKLC from [here][3] (as of Sep 18 2020, the download is no
-longer avalable) and open `Dvorak-QWERTY-Ctrl.klc`, then go to
-**Project** > **Build DLL and Setup package**. Click "Yes" when it offers
-to open the output directory, and run `setup.exe`.
+Or, for the version with Caps Lock as Backspace, run `Colemak-QWERTY-Ctrl-CapsBk/cvqwctbk/setup.exe`.
 
-- if you are on pre-windows 10 computer, this will add the "United
-  States-Dvorak (QWERTY-Ctrl)" layout in **Control Panel** >
+
+_**NOTE:** you can install both simultaneously and have them as separate layouts to switch between them as you wish._
+
+- If you are on pre-Windows 10 computer, this will add the "Colemak (QWERTY-Ctrl)" or "Colemak (QWERTY-Ctrl) [Caps->Backspace]" layout in **Control Panel** >
   **Languages**.
-- If on windows 10, go to **Setting** > **Time & Language** >
+  
+- If on Windows 10, go to **Settings** > **Time & Language** >
   **Language** > **Prefered languages**, select **English** then click
   **Options**, under keyboard, you will see
-  **United States-Dvorak (QWERTY-Ctrl)**
+  **Colemak (QWERTY-Ctrl)** or **Colemak (QWERTY-Ctrl) [Caps->Backspace]**.
 
-Then restart your computer to load the configuration.
+Then log off or restart your computer to load the configuration.
 
-[1]: <http://en.wikipedia.org/wiki/Dvorak_Simplified_Keyboard>
-[2]: <http://en.wikipedia.org/wiki/Dvorak_Simplified_Keyboard#Mac_OS>
-[3]: <http://msdn.microsoft.com/en-au/goglobal/bb964665.aspx>
+[1]: <https://github.com/bradfeehan>
+[2]: <https://github.com/bradfeehan/Dvorak-QWERTY-Ctrl>
+[3]: <https://www.microsoft.com/en-us/download/details.aspx?id=102134>
+[4]: <https://forum.colemak.com/topic/870-hacked-msklc-to-enable-remapping-capslock/>
