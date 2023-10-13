@@ -1,7 +1,7 @@
 Colemak-QWERTY-Ctrl
 ===================
 
-A Colemak version of the Mac OS X "Dvorak - QWERTY ⌘" keyboard layout, for Windows.
+A Colemak DHk ANSI version of the Mac OS X "Dvorak - QWERTY ⌘" keyboard layout, for Windows.
 
 Includes support for using Caps Lock as Backspace.
 
