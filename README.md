@@ -2,7 +2,7 @@ COLEMAK DHk ANSI with worked CTRL and WIN shortcut
 ===================
 
 
-
+just run "setup.exe"
 
 
 [1]: <https://github.com/bradfeehan>
