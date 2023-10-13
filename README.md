@@ -1,4 +1,4 @@
-Colemak-QWERTY-Ctrl
+ColemakDHkANSI-QWERTY-Ctrl
 ===================
 
 A Colemak DHk ANSI version of the Mac OS X "Dvorak - QWERTY ⌘" keyboard layout, for Windows.
